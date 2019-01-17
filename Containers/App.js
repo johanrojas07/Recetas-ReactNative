@@ -6,20 +6,13 @@
  * @flow
  */
 
-import React, { Component } from "react";
+import React from "react";
 
-import { Provider } from "mobx-react/native";
-
-import stores from "../MobX";
 
 import AppNavigation from "../Navigation/AppNavigation";
 
-export default class App extends Component {
+export default class App extends React.Component {
   render() {
-    return (
-      <Provider {...stores}>
-        <AppNavigation />
-      </Provider>
-    );
+    return <AppNavigation></AppNavigation>;
   }
 }
