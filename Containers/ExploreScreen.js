@@ -11,6 +11,7 @@ import { View, FlatList } from "react-native";
 import NavBar from "../Components/NavBar";
 import RecipeRow from "../Components/RecipeRow";
 import styles from "./Styles/GenericScreenStyles";
+import TabBar from "../Components/TabBar";
 const dataList = [
     {
         photo: "https://facebook.github.io/react-native/img/header_logo.png",
@@ -19,7 +20,7 @@ const dataList = [
         duration: 16,
         complexity: "Medio",
         people: 80,
-        id: 1
+        id: "1"
     },
     {
         photo: "https://facebook.github.io/react-native/img/header_logo.png",
@@ -28,7 +29,7 @@ const dataList = [
         duration: 16,
         complexity: "Med21312io",
         people: 80,
-        id: 2
+        id: "2"
     },
     {
         photo: "https://facebook.github.io/react-native/img/header_logo.png",
@@ -37,7 +38,7 @@ const dataList = [
         duration: 16,
         complexity: "Medio2",
         people: 80,
-        id: 3
+        id: "3"
     }
 ] 
 export default class ExploreScreen extends React.Component {
@@ -49,7 +50,7 @@ export default class ExploreScreen extends React.Component {
     super(props);
   }
 
-  keyExtractor = (item, index) => item.id;
+  keyExtractor = (item) => item.id;
 
   renderList = () => {
       return (
@@ -66,8 +67,8 @@ export default class ExploreScreen extends React.Component {
     return (
       <View style={[styles.mainScreen]}>
         <NavBar leftButton={false} title="Explore" rightButton={false}/>
-            {this.renderList()}
-        <View style={styles.container}></View>
+        <View style={styles.container}>{this.renderList()}</View>
+        <TabBar selected="explore"></TabBar>
       </View>
 
     );
