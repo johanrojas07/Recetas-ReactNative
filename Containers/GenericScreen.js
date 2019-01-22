@@ -12,6 +12,9 @@ import { Text, StyleSheet, View } from "react-native";
 import NavBar from "../Components/NavBar";
 
 export default class GenericScreen extends React.Component {
+  static navigationOptions = {
+    title: "Home"
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -19,8 +22,6 @@ export default class GenericScreen extends React.Component {
       favorite: false
     }
     console.log("constructor")
-
-    
   }
 
   componentDidMount() {
