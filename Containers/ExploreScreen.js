@@ -15,7 +15,7 @@ import TabBar from "../Components/TabBar";
 const dataList = [
     {
         photo: "https://facebook.github.io/react-native/img/header_logo.png",
-        name: "Nombre",
+        name: "Hola",
         categoryName: "Pescado",
         duration: 16,
         complexity: "Medio",
@@ -24,7 +24,7 @@ const dataList = [
     },
     {
         photo: "https://facebook.github.io/react-native/img/header_logo.png",
-        name: "Nombre",
+        name: "----1",
         categoryName: "Pescad213o",
         duration: 16,
         complexity: "Med21312io",
@@ -33,7 +33,7 @@ const dataList = [
     },
     {
         photo: "https://facebook.github.io/react-native/img/header_logo.png",
-        name: "Nombre",
+        name: "----22",
         categoryName: "Pescado3",
         duration: 16,
         complexity: "Medio2",
@@ -70,7 +70,6 @@ export default class ExploreScreen extends React.Component {
         <View style={styles.container}>{this.renderList()}</View>
         <TabBar selected="explore"></TabBar>
       </View>
-
     );
   }
 }

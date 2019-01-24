@@ -6,7 +6,7 @@ import CategoryRow from "../Components/CategoryRow";
 
 import styles from "./Styles/CategoriesScreenStyles";
 import NavBar from "../Components/NavBar";
-
+import TabBar from "../Components/TabBar";
 const categoriesData = [
   {
     id: "1",
@@ -53,6 +53,7 @@ export default class CategoriesScreen extends React.Component {
       <View style={[styles.mainScreen]}>
         <NavBar leftButton={false} title="Categories"/>
         <View style={styles.container}>{this.renderList()}</View>
+        <TabBar selected="categories"></TabBar>
       </View>
     );
   }

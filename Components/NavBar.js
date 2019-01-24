@@ -7,15 +7,19 @@ import {
   TouchableOpacity
 } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
-
-
 import styles from "./Styles/NavBarStyles";
+import { withNavigation } from "react-navigation";
 
 
 class NavBar extends React.Component {
 
   constructor() {
     return super();
+  }
+  
+  goBack = () => {
+    const { navigation } = this.props;
+    navigation.goBack();
   }
 
   pressFavorite = () => {
@@ -28,8 +32,8 @@ class NavBar extends React.Component {
     const { leftButton } = this.props;
     if (leftButton) {
       return (
-        <TouchableOpacity onPress={() => alert("back")}>
-          <Ionicons name="md-return-left" size={32} color="green" />
+        <TouchableOpacity onPress={this.goBack}>
+          <Ionicons name="md-return-left" styles={styles.favIco} />
         </TouchableOpacity>
       );
     }
@@ -68,4 +72,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default withNavigation(NavBar);

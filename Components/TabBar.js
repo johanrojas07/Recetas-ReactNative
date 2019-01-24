@@ -1,15 +1,35 @@
 import React from "react";
 import { View, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
-
+import { withNavigation } from "react-navigation";
 import styles from "./Styles/TabBarStyles";
 
 class TabBar extends React.Component {
 
+    navigate = route => {
+        const { navigation } = this.props;
+        switch(route) {
+            case "explore":
+                navigation.navigate({
+                    routeName: "Explore"
+                });
+                break;
+            case "categories": 
+                navigation.navigate({
+                    routeName: "Categories"
+                });
+                break;
+            case "favorites":
+                navigation.navigate({
+                    routeName: "Favorites"
+                });
+                break;
+        } 
+    }
     renderTab = ({route, icon}) => {
         const {selected} = this.props;
         return(
-            <TouchableOpacity style={styles.tab}>
+            <TouchableOpacity style={styles.tab} onPress={() => this.navigate(route)}>
                 <Ionicons name={icon} style={
                     [
                         styles.tabIcon,
@@ -32,4 +52,4 @@ class TabBar extends React.Component {
     }
 }
 
-export default TabBar;
+export default withNavigation(TabBar);
