@@ -29,18 +29,18 @@ class NavBar extends React.Component {
     }
   }
   backButton = () => {
-    const { leftButton } = this.props;
+    const { leftButton, transparent } = this.props;
     if (leftButton) {
       return (
         <TouchableOpacity onPress={this.goBack}>
-          <Ionicons name="md-return-left" styles={styles.favIco} />
+          <Ionicons name="md-return-left" styles={[styles.favIco, transparent ? styles.transparent : null]} />
         </TouchableOpacity>
       );
     }
   };
 
   rightButton = () => {
-    const { rightButton, favorite } = this.props;
+    const { rightButton, favorite, transparent } = this.props;
     if (rightButton) {
       if (favorite) {
         return (
@@ -51,17 +51,16 @@ class NavBar extends React.Component {
       } else {
         return (
           <TouchableWithoutFeedback onPress={this.pressFavorite}>
-            <Ionicons name="md-heart" size={32} style={[styles.barButtonIco]} />
+            <Ionicons name="md-heart" size={32} style={[styles.barButtonIco, transparent ? styles.transparent : null]} />
           </TouchableWithoutFeedback>
         );
       }
     }
   };
   render() {
-    const { title } = this.props;
-    console.log("title", title);
+    const { title, transparent } = this.props;
     return (
-      <View {...this.props} style={styles.navBar}>
+      <View {...this.props} style={[styles.navBar, transparent ? styles.transparent : null]}>
         <View style={styles.leftContainer}>{this.backButton()}</View>
         <View style={styles.titleWrapper}>
           <Text style={styles.title}>{title}</Text>
